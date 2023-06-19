@@ -25,7 +25,9 @@ $QuartusShPath = Join-Path $QuartusPath $QuartusShExe
 # compile the quartus project
 if (Test-Path $QuartusShPath) {
     Write-Host "Compiling Quartus project..."
-    $QCompileCommand = "$QuartusShExe --flow compile `"$($projectFile.FullName)`""
+
+    $TopLevel = [System.IO.Path]::GetFileNameWithoutExtension($ProjectFile.FullName)
+    $QCompileCommand = "$QuartusShExe --flow compile `"$($TopLevel)`""
     Invoke-Expression -Command $QCompileCommand
 } else {
     Write-Host "Failed to find $QuartusShExe at $QuartusShPath. Aborting."

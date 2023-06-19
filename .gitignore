@@ -32,3 +32,6 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+db/
+incremental_db/
+output_files/
